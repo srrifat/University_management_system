@@ -1,0 +1,344 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>//use for strcmp()
+#include<stdlib.h>
+void welcomeScreen(void);
+void title(void);
+void loginscreen(void);
+void MainMenu(void);
+void User(void);
+void Un_ad(void);
+void Fa(void);
+void St(void);
+void Ta_as(void);
+void Em(void);
+void Pa(void);
+void Gr(void);
+
+void Li(void);
+
+void Ho(void);
+
+void Tr(void);
+
+void Cl(void);
+
+void Pr(void);
+
+void Ad_pa(void);
+void Lo_o(void);
+/*
+struct profile
+{
+    char name[20];
+    char id[10];
+    char intake[4];
+    char section[5];
+    float CGPA;
+    char Completed_cousre[40];
+    char email[20];
+    char Mobile_no[13];
+    char Blood_group[5];
+    char Address[30];
+};
+*/
+
+void main()
+{
+    welcomeScreen();
+    title();
+    loginscreen();
+}
+void welcomeScreen(void)
+{
+    printf("\n\n\n\n\n\n\n\t\t\t\t**************************************************");
+    printf("\n\t\t\t\t\t\t Welcome To \t\t");
+    printf("\n\t\t\t\t\t   BUBT management system \t\t");
+    printf("\n\t\t\t\t**************************************************");
+    printf("\n\n\n\n Press any key to continue.........\n");
+
+    getch();
+    system("cls");
+}
+void title(void)
+{
+    printf("\n\n\t\t\t\t\t\t--------------------------------");
+    printf("\n\t\t\t\t                              BUBT     ");
+    printf("\n\t\t\t\t\t\t--------------------------------");
+}
+void loginscreen()
+{
+    int e=0;
+    char Username[15];
+    char Password[15];
+    char original_Username[25]="srrifat";
+    char original_Password[15]="277";
+    do
+    {
+        printf("\n\n\n\n\t\t\tEnter your Username and Password :=> ");
+        printf("\n\n\n\t\t\t\tUsername:");
+        scanf("%s",&Username);
+        printf("\n\n\n\t\t\t\tPassword:");
+        scanf("%s",&Password);
+        if(strcmp(Username,original_Username)==0&&strcmp(Password,original_Password)==0)
+        {
+            printf("\n\n\n\t\t\t\t\t Log in successfull.....................");
+            getch();
+            MainMenu();
+            break;
+
+        }
+        else
+
+        {
+            printf("\n\t\t\tPassword incorrect : (Try again)");
+            e++;
+            getch();
+
+
+
+        }
+    }
+    while (e<<2);
+    if(e>2)
+    {
+        printf("You have cross the limit.You cannot login :(");
+        getch();
+        //ex_it();
+
+    }
+    system("cls");
+}
+
+
+void MainMenu(void)
+{
+
+
+
+    system("cls");
+    int choose;
+    title();
+
+
+    printf("\n\n\n\n\t\t\t1.User\n");
+
+    printf("\t\t\t2.University admin");
+    printf("\t\t\t0.Logout...\n\n\n");
+    printf("\t\t\tChoose from 1 to 2 :=>");
+
+    scanf("%i",&choose);
+
+
+
+    switch(choose)
+    {
+    case 0:
+
+        Lo_o();
+        break ;
+    case 1:
+        User();
+    case 2:
+        Un_ad();
+        break;
+
+    }
+}
+
+
+
+void Un_ad(void)
+{
+    system("cls");
+    int choose;
+    title();
+     printf("\n\n\n\t\t\t1.Faculty\n");
+    printf("\t\t\t2.Student\n");
+    printf("\t\t\t3.Teacher assistant\n");
+    printf("\t\t\t4.Employees\n");
+    printf("\t\t\t5.Parents\n");
+    printf("\t\t\t6.Graduated\n");
+    printf("\t\t\t7.Library\n");
+    printf("\t\t\t8.Hostel\n");
+    printf("\t\t\t9.Transport\n");
+    printf("\t\t\t10.club\n");
+    printf("\t\t\t11.programmer\n");
+    printf("\t\t\t12.admission panel\n");
+    printf("\t\t\t0.Logout...\n\n\n");
+    printf("\t\t\tChoose from 1 to 12 :=>");
+    scanf("%i",&choose);
+
+    switch(choose)
+    {
+    case 0:
+      Lo_o();
+      break;
+    case 1:
+      Fa();
+    break;
+    case 2:
+    St();
+    break;
+    case 3:
+    Ta_as();
+    break;
+    case 4:
+    Em();
+    break;
+    case 5:
+    Pa();
+    break;
+    case 6:
+    Gr();
+    break;
+    case 7:
+    Li();
+    break;
+    case 8:
+    Ho();
+    break;
+    case 9:
+    Tr();
+    break;
+    case 10:
+    Cl();
+    break;
+    case 11:
+    Pr();
+    break;
+    case 12:
+    Ad_pa();
+    break;
+    }
+
+}
+
+
+void Fa(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void St(void)
+{
+    printf("System is uncompleted ");
+}
+void Ta_as(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Em(void)
+{
+    printf("System is uncompleted ");
+}
+void Pa(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Gr(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Li(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Ho(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Tr(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Cl(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Pr(void)
+{
+    printf("System is uncompleted ");
+    getch();
+}
+void Ad_pa(void)
+{
+    printf("System is uncompleted ");
+    getch();
+
+}
+void Lo_o(void)
+{
+    system("cls");
+}
+void User(void)
+{
+    system("cls");
+    int choose;
+    title();
+    printf("\n\n\n\t\t\t1.Faculty\n");
+    printf("\t\t\t2.Student\n");
+    printf("\t\t\t3.Teacher assistant\n");
+    printf("\t\t\t4.Employees\n");
+    printf("\t\t\t5.Parents\n");
+    printf("\t\t\t6.Graduated\n");
+    printf("\t\t\t7.Library\n");
+    printf("\t\t\t8.Hostel\n");
+    printf("\t\t\t9.Transport\n");
+    printf("\t\t\t10.club\n");
+    printf("\t\t\t11.programmer\n");
+    printf("\t\t\t12.admission panel\n");
+    printf("\t\t\t0.Logout...\n\n\n");
+    printf("\t\t\tChoose from 1 to 12 :=>");
+    scanf("%i",&choose);
+
+    switch(choose)
+    {
+    case 0:
+      Lo_o();
+      break;
+    case 1:
+      Fa();
+    break;
+    case 2:
+    St();
+    break;
+    case 3:
+    Ta_as();
+    break;
+    case 4:
+    Em();
+    break;
+    case 5:
+    Pa();
+    break;
+    case 6:
+    Gr();
+    break;
+    case 7:
+    Li();
+    break;
+    case 8:
+    Ho();
+    break;
+    case 9:
+    Tr();
+    break;
+    case 10:
+    Cl();
+    break;
+    case 11:
+    Pr();
+    break;
+    case 12:
+    Ad_pa();
+    break;
+    }
+}
