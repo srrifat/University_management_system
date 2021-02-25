@@ -1,4 +1,4 @@
-//BUBT Management  System//
+//BUBT management system>>team-04
 #include<bits/stdc++.h>
 using namespace std;
 #include<stdio.h>
@@ -155,7 +155,7 @@ void cl_it(void);
 void cl_to(void);
 void cl_so(void);
 void cl_ba(void);
-//101010101010101010101010101010101010101010101010101010101010101010101010 admin panel(admin & user)(password and user name different )jjjjjjjjjjjjjjjjjjjjjjj
+//101010101010101010101010101010101010101010101010101010101010101010101010 admin panel(admin & user)(password different )jjjjjjjjjjjjjjjjjjjjjjj
 void admimssion_login();
 void Ad_pa(void);
 void adm_pa(void);
@@ -170,7 +170,7 @@ struct profile
     int id;
     char name[20];
     char position[20];
-    char email[20];
+    char email[30];
     char mobile[25];
     char blood[5];
     char address[20];
@@ -277,7 +277,7 @@ void loginscreen(void)
         }
         password[i]='\0';
         printf("\n");
-        if(strcmp(username,"team4")==0 && strcmp(password,"277")==0)
+        if(strcmp(username,"team4")==0 && strcmp(password,"srrifat")==0)
         {
             printf("\n");
             loading();
@@ -303,36 +303,53 @@ void MainMenu(void)
     system("cls");
 
     title();
-    int choose;
+    int ch;
 
-    printf("\n\n\n\n\t\t\t\t1.User\n");
-
-    printf("\t\t\t\t2.University admin\n");
-    printf("\t\t\t\t0.Logout...\n\n\n");
-    printf("\t\t\t\tChoose from 1 to 2 :=>");
-
-    scanf("%i",&choose);
-
-
-
-    switch(choose)
+    while(ch!=2)
     {
-    case 0:
 
-        exit(1);
-        break;
+        printf("\n\n\n\n\t\t\t\t1.User\n");
 
-        break ;
-    case 1:
+        printf("\t\t\t\t2.University admin\n");
+        printf("\t\t\t\t0.Logout...\n\n\n");
+        printf("\t\t\t\tChoose from 1 to 2 :=>");
 
-        User();
-        break;
-    case 2:
-        loginscreen();
-        Un_ad();
-        break;
+        scanf("%i",&ch);
+
+
+
+        switch(ch)
+        {
+        case 0:
+
+            exit(1);
+            break;
+
+            break ;
+        case 1:
+
+            User();
+            break;
+        case 2:
+            loginscreen();
+            Un_ad();
+            break;
+        default :
+        {
+            system("cls");
+            printf("\n\t\t\t!!!!Wrong choice");
+        }
+        printf("\n\t\t\tPass any key to continue............... ");
+
+
+        }
+
+
 
     }
+
+
+
 }
 //***************************************************************** User define function  ********************************************************
 void User(void)
@@ -340,68 +357,87 @@ void User(void)
     system("cls");
     int choose;
     title();
-    printf("\n\n\n\t\t\t\t\t\t\t     <USER>\n");
-    printf("\n\n\t\t\t\t1.Faculty\n");
-    printf("\t\t\t\t2.Student\n");
-    printf("\t\t\t\t3.Teacher assistant\n");
-    printf("\t\t\t\t4.Employees\n");
-    printf("\t\t\t\t5.Graduated\n");
-    printf("\t\t\t\t6.Library\n");
-    printf("\t\t\t\t7.Hostel\n");
-    printf("\t\t\t\t8.Transport\n");
-    printf("\t\t\t\t9.club\n");
-    printf("\t\t\t\t10.admission panel\n");
-    printf("\t\t\t\t0.Mainmenu\n\n\n");
-    printf("\t\t\t\tChoose from 1 to 10 :=>");
-    scanf("%i",&choose);
 
-    switch(choose)
+    while(choose!=10)
     {
-    case 0:
 
-        MainMenu();
-        break;
-    case 1:
-        fa_login();
-        break;
-    case 2:
-        st_login();
-        break;
-    case 3:
 
-        ta_login();
-        break;
-    case 4:
+        printf("\n\n\n\t\t\t\t\t\t\t     <USER>\n");
+        printf("\n\n\t\t\t\t1.Faculty member\n");
+        printf("\t\t\t\t2.Student\n");
+        printf("\t\t\t\t3.Teacher assistant\n");
+        printf("\t\t\t\t4.Employees\n");
+        printf("\t\t\t\t5.Graduated\n");
+        printf("\t\t\t\t6.Library\n");
+        printf("\t\t\t\t7.Hostel\n");
+        printf("\t\t\t\t8.Transport\n");
+        printf("\t\t\t\t9.club\n");
+        printf("\t\t\t\t10.admission panel\n");
+        printf("\t\t\t\t0.Mainmenu\n\n\n");
+        printf("\t\t\t\tChoose from 1 to 10 :=>");
+        scanf("%i",&choose);
 
-        em_login();
-        break;
+        switch(choose)
+        {
+        case 0:
 
-    case 5:
+            MainMenu();
+            break;
+        case 1:
+            fa_login();
+            break;
+        case 2:
+            st_login();
+            break;
+        case 3:
 
-        gra_login();
-        break;
-    case 6:
+            ta_login();
+            break;
+        case 4:
 
-        lib_login();
-        break;
-    case 7:
+            em_login();
+            break;
 
-        hol_login();
-        break;
-    case 8:
+        case 5:
 
-        tra_login();
-        break;
-    case 9:
+            gra_login();
+            break;
+        case 6:
 
-        Cl();
-        break;
+            lib_login();
+            break;
+        case 7:
 
-    case 10:
-        admimssion_login();
-        adm_pa();
-        break;
+            hol_login();
+            break;
+        case 8:
+
+            tra_login();
+            break;
+        case 9:
+
+            Cl();
+            break;
+
+        case 10:
+            admimssion_login();
+            adm_pa();
+            break;
+        default :
+        {
+            system("cls");
+            printf("\nt\t\t\t!!!Wrong choice");
+        }
+        printf("\n\t\t\tPass any key to continue............... ");
+
+
+        }
+
+
+
     }
+
+
 }
 
 //***************************************************************** University admin function *****************************************************************
@@ -410,60 +446,72 @@ void Un_ad(void)
 {
     system("cls");
     system("COLOR 0B");
-    int choose;
     title();
-    printf("\n\n\n\t\t\t\t\t\t       <University admin>\n");
-    printf("\n\n\n\t\t\t\t1.Faculty record\n");
-    printf("\t\t\t\t2.Student record\n");
-    printf("\t\t\t\t3.Teacher assistant record\n");
-    printf("\t\t\t\t4.Employees record\n");
-    printf("\t\t\t\t5.Graduated record\n");
-    printf("\t\t\t\t6.Library record\n");
-    printf("\t\t\t\t7.Hostel record\n");
-    printf("\t\t\t\t8.Transport record\n");
-    printf("\t\t\t\t9.Club record\n");
-    printf("\t\t\t\t10.Admission panel record\n");
-    printf("\t\t\t\t0.Logout from admin...\n\n\n");
-    printf("\t\t\t\tChoose from 1 to 10 :=>");
-    scanf("%i",&choose);
-
-    switch(choose)
+    int choose;
+    while(choose!=10)
     {
-    case 0:
-        MainMenu();
-        break;
-    case 1:
-        Fa();
-        break;
-    case 2:
-        St();
-        break;
-    case 3:
-        Te_as();
-        break;
-    case 4:
-        Em();
-        break;
+        printf("\n\n\n\t\t\t\t\t\t       <University admin>\n");
+        printf("\n\n\n\t\t\t\t1.Faculty member record\n");
+        printf("\t\t\t\t2.Student record\n");
+        printf("\t\t\t\t3.Teacher assistant record\n");
+        printf("\t\t\t\t4.Employees record\n");
+        printf("\t\t\t\t5.Graduated record\n");
+        printf("\t\t\t\t6.Library record\n");
+        printf("\t\t\t\t7.Hostel record\n");
+        printf("\t\t\t\t8.Transport record\n");
+        printf("\t\t\t\t9.Club record\n");
+        printf("\t\t\t\t10.Admission panel record\n");
+        printf("\t\t\t\t0.Logout from admin...\n\n\n");
+        printf("\t\t\t\tChoose from 1 to 10 :=>");
+        scanf("%i",&choose);
 
-    case 5:
-        Gr();
-        break;
-    case 6:
-        Li();
-        break;
-    case 7:
-        Ho();
-        break;
-    case 8:
-        Tr();
-        break;
-    case 9:
-        Cl();
-        break;
+        switch(choose)
+        {
+        case 0:
+            MainMenu();
+            break;
+        case 1:
+            Fa();
+            break;
+        case 2:
+            St();
+            break;
+        case 3:
+            Te_as();
+            break;
+        case 4:
+            Em();
+            break;
 
-    case 10:
-        Ad_pa();
-        break;
+        case 5:
+            Gr();
+            break;
+        case 6:
+            Li();
+            break;
+        case 7:
+            Ho();
+            break;
+        case 8:
+            Tr();
+            break;
+        case 9:
+            Cl();
+            break;
+
+        case 10:
+            Ad_pa();
+            break;
+        default :
+        {
+            system("cls");
+            printf("\nt\t\t\t!!!Wrong choice");
+        }
+        printf("\n\t\t\tPass any key to continue............... ");
+
+
+        }
+
 
 
     }
@@ -481,7 +529,7 @@ void Fa(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Faculty insert\n");
+        printf("\n\n\n\t\t\t\t1.Faculty member insert \n");
         printf("\t\t\t\t2.Faculty display\n");
         printf("\t\t\t\t3.Faculty search\n");
         printf("\t\t\t\t4.Faculty delete\n");
@@ -515,7 +563,7 @@ void Fa(void)
             Un_ad();
         default :
         {
-            printf("Wrong choice");
+            printf("\n\t\t\t!!!!!!Wrong choice");
         }
         printf("Pass any key to continue............... ");
 
@@ -748,7 +796,7 @@ void fa_user()
     system("COLOR 0B");
     int ch;
 
-    while(ch!=5)
+    while(ch!=7)
     {
         printf("\n\n\t\t\t\t1.Profie\n");
         printf("\t\t\t\t2.Course id\n");
@@ -935,7 +983,6 @@ void fa_information()
     printf ("CSE-103\t\tMd.Abu Bakkar Siddique\tmisddique@bubt.edu.bd\t\t01741449006\n");
     printf ("ECO-101\t\tMr.Tareq Imam Zahid\ttareqimamzahid@yahoo.com\t01717041003\n");
     printf ("MATH-121\tMd.farooq Hasan\t\tfarooq@bubt.edu.bd\t\t01938498491\n");
-    printf("\n\t\t\tpress 0 to go back =>");
     int choose;
     printf("\n\t\t\tpress 0 to go back =>");
 
@@ -987,31 +1034,41 @@ void St(void)
 
     title();
     int choose;
-
-    printf("\n\n\n\n\t\t\t\t1.Student profile\n");
-
-    printf("\t\t\t\t2.Student registration\n");
-    printf("\t\t\t\t3.Student result\n");
-    printf("\t\t\t\t0.Logout...\n\n\n");
-    printf("\t\t\t\tChoose from 1 to 2 :=>");
-
-    scanf("%i",&choose);
-
-
-
-    switch(choose)
+    while(choose!=3)
     {
-    case 0:
-        Un_ad();
-        break ;
-    case 1:
-        St_profile();
-    case 2:
-        St_registration();
-        break;
-    case 3:
-        St_result();
-        break;
+        printf("\n\n\n\n\t\t\t\t1.Student profile\n");
+
+        printf("\t\t\t\t2.Student registration\n");
+        printf("\t\t\t\t3.Student result\n");
+        printf("\t\t\t\t0.Logout...\n\n\n");
+        printf("\t\t\t\tChoose from 1 to 2 :=>");
+
+        scanf("%i",&choose);
+
+
+
+        switch(choose)
+        {
+        case 0:
+            Un_ad();
+            break ;
+        case 1:
+            St_profile();
+        case 2:
+            St_registration();
+            break;
+        case 3:
+            St_result();
+            break;
+        default :
+        {
+            printf("\n\t\t\tWrong choice");
+        }
+        printf("\n\t\t\tPass any key to continue............... ");
+
+
+        }
+
 
     }
 }
@@ -2402,7 +2459,7 @@ void te_as(void)
 
     while(ch!=3)
     {
-        printf("\n\n\t\t\t\t1.TA Profile\n");
+        printf("\n\n\t\t\t\t1.Profile\n");
         printf("\t\t\t\t2.Research info\n");
         printf("\t\t\t\t3.CR information\n");
         printf("\t\t\t\t0.Logout \n");
@@ -2769,7 +2826,7 @@ void emp(void)
 
     while(ch!=3)
     {
-        printf("\n\n\t\t\t\t1.TA Profile\n");
+        printf("\n\n\t\t\t\t1.Profile\n");
         printf("\t\t\t\t2.Registration\n");
         printf("\t\t\t\t3.Account section\n");
         printf("\t\t\t\t0.Logout \n");
@@ -3569,7 +3626,7 @@ void lib()
 
     while(ch!=3)
     {
-        printf("\n\n\t\t\t\t1.Library Profile\n");
+        printf("\n\n\t\t\t\t1.Profile\n");
         printf("\t\t\t\t2.Library book info\n");
         printf("\t\t\t\t3.Library website\n");
         printf("\t\t\t\t0.Logout \n");
@@ -3663,7 +3720,25 @@ void lib_book()
 }
 void lib_web()
 {
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++link
+    system("COLOR 0E");
+    system("cls");
+    title();
+    system("explorer http://103.15.140.180:8000/");
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+
+    switch(choose)
+    {
+    case 0:
+
+        lib();
+        break ;
+    }
 }
 
 //777777777777777777777777777777777777777777777777777777777777777777 Hostel (Admin) 77777777777777777777777777777777777777777777777777777777777777777777777
@@ -3892,7 +3967,7 @@ void hol_login()
         FILE *ho;
         char name2[50];
         int id2,r,k=0;
-        ho=fopen("employees.txt","r");
+        ho=fopen("hostel.txt","r");
         if(ho==NULL)
             cout<< "File dose not exist."<<endl;
 
@@ -4275,12 +4350,12 @@ void tra(void)
     system("COLOR 0B");
     int ch;
 
-    while(ch!=3)
+    while(ch!=4)
     {
         printf("\n\n\t\t\t\t1.Profile\n");
         printf("\t\t\t\t2.Vehicle information\n");
-        printf("\t\t\t\t3.Vehicle mainteance\n");
-        printf("\t\t\t\t4.Expense traching\n");
+        printf("\t\t\t\t3.Vehicle maintenance\n");
+        printf("\t\t\t\t4.Expense tracking\n");
         printf("\t\t\t\t0.Logout \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
@@ -4390,7 +4465,7 @@ void tra_info()
     system("cls");
     title();
     printf ("\n\t\t**********************************\n");
-    printf ("\t\t\tVechicles Info\n");
+    printf ("\t\t\tVechicle Info\n");
     printf ("\t\t**********************************\n");
     printf ("\t\t\t\t\t\t\t\t\t\t\t\n");
     printf ("Bus Name\t\tSeat\t\tlocation\n");
@@ -4416,7 +4491,7 @@ void tra_mainte()
     system("cls");
     title();
     printf ("\n\t\t**********************************\n");
-    printf ("\t\t\tVechiles Maintenance\n");
+    printf ("\t\t\tVechile Maintenance\n");
     printf ("\t\t**********************************\n");
     printf ("\t\t\t\t\t\t\t\t\t\t\t\n");
     printf ("Mirpur Cantonment\tto\tPallabi\t\tto\tMirpur 12\tto\tBUBT\t\n");
@@ -4676,7 +4751,7 @@ void admimssion_login()
 
     while(1)
     {
-        printf("\n\n\t\t\tEnter admin username and password=>");
+        printf("\n\n\t\t\t#Enter admin username and password=>");
         printf("\n\n\n\n\n\t\t\t\tUsername:");
         scanf("%s",username);
         printf("\n\t\t\t\tPassword:");
