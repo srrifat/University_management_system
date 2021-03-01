@@ -58,15 +58,24 @@ void fac_information(void);
 
 void strg_login();
 void registration(void);
-
-void library_report(void);
+void s_lib_login();
+void s_lib(void);
 void payment(void);
+void py_insert_record();
+void py_display_record();
+void bikash(void);
+void weblink(void);
+
+void nogod(void);
+void rocket(void);
 void all_course(void);
 
 void result(void);
 void stre_login(void);
 
 void career_guideline(void);
+void s_tra_login(void);
+void s_tra(void);
 //333333333333333333333333333333333333333333333333333333333333333 teacher assistant (admin) 333333333333333333333333333333333333333333333333333333333333333333
 void Te_as(void);
 void ta_insert_record();
@@ -104,7 +113,6 @@ void gr_del_record();
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee graduated (user) eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 void gra(void);
 void gra_login();
-
 void gra_profile();
 void gra_program();
 void gra_group();
@@ -128,12 +136,19 @@ void ho_insert_record();
 void ho_display_record();
 void ho_serch_record();
 void ho_del_record();
+void hpy_display_record();
 //gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg hostel(user) gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
 void hol_login();
 void hol();
+void hpy_insert_record();
 void hol_profile();
 void hol_time_sch();
 void hol_item();
+void hol_payment();
+void h_bikash();
+void h_nogod();
+void h_rocket();
+void h_weblink();
 //88888888888888888888888888888888888888888888888888888888888888 Transport(admin) 888888888888888888888888888888888888888888888888888888888888888888888888
 void Tr(void);
 void tr_insert_record();
@@ -147,7 +162,7 @@ void tra_profile();
 void tra_info();
 void tra_mainte();
 void tra_trach();
-//999999999999999999999999999999999999999999999999999999999999999999999 club(admin & user) iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+//999999999999999999999999999999999999999999999999999999999999999999999 club(admin ) 99999999999999999999999999999999999999999999999999999999999999999
 void Cl(void);
 void cl_cu(void);
 void cl_ph(void);
@@ -155,6 +170,8 @@ void cl_it(void);
 void cl_to(void);
 void cl_so(void);
 void cl_ba(void);
+//iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii club (user) iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+void Cl_u(void);
 //101010101010101010101010101010101010101010101010101010101010101010101010 admin panel(admin & user)(password different )jjjjjjjjjjjjjjjjjjjjjjj
 void admimssion_login();
 void Ad_pa(void);
@@ -192,15 +209,22 @@ struct profile
     char teachername[20];
     char subject[10];
     char intake[20];
-    char book[10];
     char room_n[10];
     char gender[20];
     char bus_name[10];
     char program[20];
+    char book_receive_date[20];
+    char book_submit_date[20];
+    char book_name[30];
+    char total_book[10];
+    char number_semister[10];
+    char number_installment[10];
+    char amount[15];
+    char payment_date[15];
 
 
-};
-struct profile p;
+} p;
+//struct profile p;
 
 //0000000000000000000000000000000000000000000000000000000000000000000000000000 main function 0000000000000000000000000000000000000000000000000000000000000000000
 int main()
@@ -286,7 +310,7 @@ void loginscreen(void)
         else
         {
             system("COLOR 0C");
-            printf("\n\t\t\tPlease enter the valid password=>");
+            printf("\a\n\t\t\tPlease enter the valid password=>");
 
         }
 
@@ -416,7 +440,7 @@ void User(void)
             break;
         case 9:
 
-            Cl();
+            Cl_u();
             break;
 
         case 10:
@@ -604,6 +628,7 @@ void fa_insert_record(void)
     gets(p.position);
     printf("\t\t4.Enter faculty  email :");
     gets(p.email);
+    fflush(stdin);
     printf("\t\t5.Enter faculty  mobile :");
     gets(p.mobile);
     printf("\t\t6.Enter faculty  blood group  :");
@@ -1034,12 +1059,13 @@ void St(void)
 
     title();
     int choose;
-    while(choose!=3)
+    while(choose!=4)
     {
         printf("\n\n\n\n\t\t\t\t1.Student profile\n");
 
         printf("\t\t\t\t2.Student registration\n");
         printf("\t\t\t\t3.Student result\n");
+        printf("\t\t\t\t4.Student payment record\n");
         printf("\t\t\t\t0.Logout...\n\n\n");
         printf("\t\t\t\tChoose from 1 to 2 :=>");
 
@@ -1060,6 +1086,10 @@ void St(void)
         case 3:
             St_result();
             break;
+        case 4:
+            system("cls");
+
+            py_display_record();
         default :
         {
             printf("\n\t\t\tWrong choice");
@@ -1157,6 +1187,7 @@ void st_insert_record(void)
     gets(p.intake_section);
     printf("\t\t4.Enter student  email :");
     gets(p.email);
+    fflush(stdin);
     printf("\t\t5.Enter student  mobile :");
     gets(p.mobile);
     printf("\t\t6.Enter student blood group  :");
@@ -1729,6 +1760,43 @@ void stre_del_record(void)
     printf("\n\t\t\t\t#Update Record ==>\n");
     stre_display_record();
 }
+//#################################################################### student payment (admin) ################################################################
+void py_display_record(void)
+{
+    title();
+    FILE*py;
+    py=fopen("payment.txt","r");
+    if(py==NULL)
+    {
+        printf("\n\t\t\tNot open");
+        return;
+    }
+    printf("\n\t\t\t\tStudent payment details are as follows=>\n\n");
+
+    while(!feof(py))
+    {
+        fscanf(py,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.mobile,&p.subject,&p.intake_section,&p.number_semister,&p.number_installment,&p.amount);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.mobile,p.subject,p.intake_section,p.number_semister,p.number_installment,p.amount);
+
+    }
+    fclose(py);
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+
+    switch(choose)
+    {
+    case 0:
+
+        St();
+        break ;
+    }
+
+}
 
 //bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb Student (user) bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 //..........................................................student login ...........................................................................
@@ -1879,7 +1947,7 @@ void stre_login()
 }
 
 
-//.............................................................. user login ...........................................................................
+//.............................................................. student(user login) ...........................................................................
 
 void s_user(void)
 {
@@ -1889,17 +1957,18 @@ void s_user(void)
     system("COLOR 0B");
     int ch;
 
-    while(ch!=9)
+    while(ch!=10)
     {
-        printf("\n\n\t\t\t\t1.Profie\n");
+        printf("\n\n\n\n\t\t\t\t1.Profie\n");
         printf("\t\t\t\t2.Class routine\n");
         printf("\t\t\t\t3.Faculty information\n");
         printf("\t\t\t\t4.Registration \n");
-        printf("\t\t\t\t5.Library report\n");
+        printf("\t\t\t\t5.Library \n");
         printf("\t\t\t\t6.Payment\n");
         printf("\t\t\t\t7.All cource\n");
         printf("\t\t\t\t8.Result\n");
         printf("\t\t\t\t9.Career guideline\n");
+        printf("\t\t\t\t10.transport\n");
         printf("\t\t\t\t0.Logout\n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -1929,7 +1998,7 @@ void s_user(void)
 
         case 5:
             system("cls");
-            library_report();
+            s_lib_login();
             break;
         case 6:
             system("cls");
@@ -1946,6 +2015,10 @@ void s_user(void)
         case 9:
             system("cls");
             career_guideline();
+            break;
+        case 10:
+            system("cls");
+            s_tra_login();
             break;
         default :
         {
@@ -2025,8 +2098,6 @@ void fac_information(void)
     int choose;
     scanf("%i",&choose);
 
-
-
     switch(choose)
     {
     case 0:
@@ -2058,13 +2129,211 @@ void registration(void)
         break ;
     }
 }
-void library_report(void)
+void s_lib_login()
+{
+    system("cls");
+    title();
+    system("COLOR 0A");
+    while(1)
+    {
+        FILE *li;
+        char name2[50];
+        int id2,r,k=0;
+        li=fopen("library.txt","r");
+        if(li==NULL)
+            cout<< "File dose not exist."<<endl;
+
+        else
+        {
+            cout<<"\n\n\t\t\t\t\t##Please enter your  username and password##";
+            cout<< "\n\n\n\t\t\t\tUsername : ";
+            cin>>name2;
+            // getchar();
+            //gets( name2);
+
+            cout<< "\n\t\t\t\tPassword : ";
+            cin>>id2;
+            while(!feof(li))
+            {
+                fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.mobile,&p.book_receive_date,&p.book_submit_date,&p.book_name,&p.total_book);
+                r=strcmp(p.name,name2);
+                if(r==0 && p.id==id2)
+                {
+
+                    loading();
+                    //lib_profile();
+                    s_lib();
+                    //   printf("\n\t\t\t1.Name:%s\n\t\t\t2.ID:%d\n\t\t\t3.Intake-section:%s\n\t\t\t4.MObile no:%s\n\t\t\t5.Book receive date:%s\n\t\t\t6.Book submit date:%s\n\t\t\t7.Book name:%s\n\t\t\t8.Total book:%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
+                    k=1;
+                    break;
+                }
+            }
+            if(k==0)
+                cout<< "\t\t!!!!!Wrong password...please try again!"<<endl;
+            else if(k==1)
+                break;
+            fclose(li);
+        }
+    }
+
+}
+void s_lib()
+{
+    system("cls");
+    title();
+    system("COLOR 0B");
+    int ch;
+
+    while(ch!=3)
+    {
+        printf("\n\n\t\t\t\t1.Profile\n");
+        printf("\t\t\t\t2.Library book info\n");
+        printf("\t\t\t\t3.Library website\n");
+        printf("\t\t\t\t0.Back \n");
+
+        printf("\n\t\t\t\tEnter your choose => ");
+        scanf("%d",&ch);
+
+        switch(ch)
+        {
+
+        case 0:
+            s_user();
+            break;
+        case 1:
+            system("cls");
+            lib_profile();
+            break;
+        case 2:
+            system("cls");
+            lib_book();
+            break;
+        case 3:
+            system("cls");
+            lib_web();
+            break;
+
+        default :
+        {
+            printf("Wrong choice");
+        }
+        printf("Pass any key to continue............... ");
+
+
+        }
+    }
+}
+void payment(void)
 {
     system("COLOR 0E");
     system("cls");
     title();
 
-    system("explorer http://103.15.140.180:8000/");
+    int ch;
+    while(ch!=4)
+    {
+        printf("\n\t\t\t\t\t\t $$ ONLINE PAYMENT $$ ");
+        printf("\n\n\t\t\t\t1.Bikash\n");
+        printf("\t\t\t\t2.Nogod\n");
+        printf("\t\t\t\t3.Rocket\n");
+        printf("\t\t\t\t4.weblink \n");
+        printf("\t\t\t\t0.Back\n");
+        printf("\n\t\t\t\tEnter your choose => ");
+        scanf("%d",&ch);
+
+        switch(ch)
+        {
+        case 0:
+            s_user();
+            break;
+        case 1:
+            system("cls");
+            bikash();
+            break;
+        case 2:
+            system("cls");
+            nogod();
+            break;
+        case 3:
+            system("cls");
+            rocket();
+            break;
+        case 4:
+            weblink();
+            break;
+        default :
+        {
+            printf("\n\t\t\t\t!!Wrong choice");
+        }
+        printf("\n\t\t\t\t#Pass any key to continue............... ");
+
+
+        }
+    }
+
+
+
+}
+void py_insert_record(void)
+{
+
+
+    title();
+    system("COLOR 0B");
+    FILE*py;
+    py=fopen("payment.txt","a+");
+    if(py==NULL)
+    {
+        printf("\n\t\t\tError cannot open file \n");
+        return;
+
+
+    }
+
+    printf("\n\n\t\t\t\t\t*Enter your payment data :\n");
+
+
+
+    printf("\n\t\t1.Enter your name :");
+    getchar();
+    gets(p.name);
+    printf("\t\t2.Enter your id :");
+    scanf("\n%d",&p.id);
+    fflush(stdin);
+
+    printf("\t\t3.Enter your mobile number :");
+    gets(p.mobile);
+    fflush(stdin);
+    printf("\t\t4.Enter your department:");
+    gets(p.subject);
+    printf("\t\t5.Enter your intake & section :");
+    gets(p.intake_section);
+    printf("\t\t6.Enter your semester number:");
+    gets(p.number_semister);
+    //fflush(stdin);
+    printf("\t\t7.Enter the number of installment :");
+    gets(p.number_installment);
+    printf("\t\t8.Enter the amount :");
+    gets(p.amount);
+    fprintf(py,"%s\n",p.name);
+    fprintf(py,"%d\n",p.id);
+    fprintf(py,"%s\n",p.mobile);
+    fprintf(py,"%s\n",p.subject);
+    fprintf(py,"%s\n",p.intake_section);
+    fprintf(py,"%s\n",p.number_semister);
+    fprintf(py,"%s\n",p.number_installment);
+    fprintf(py,"%s\n",p.amount);
+
+    {
+        printf("\n\t\t\t****$Payment successfully$*****\n");
+
+    }
+    fclose(py);
+    printf("\n\t\t\t##Update Record## \n");
+    //  fscanf(py,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.position,&p.email,&p.mobile,&p.blood,&p.address,&p.salary);
+    printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.mobile,p.subject,p.intake_section,p.number_semister,p.number_installment,p.amount);
+
+    // py_display_record();
     int choose;
 
     printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
@@ -2077,11 +2346,80 @@ void library_report(void)
     {
     case 0:
 
-        s_user();
+        payment();
+        break ;
+    }
+
+}
+void bikash()
+{
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    py_insert_record();
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+    switch(choose)
+    {
+    case 0:
+
+        payment();
         break ;
     }
 }
-void payment(void)
+
+void nogod()
+{
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    py_insert_record();
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+    switch(choose)
+    {
+    case 0:
+
+        payment();
+        break ;
+    }
+}
+void rocket()
+{
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    py_insert_record();
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+
+    switch(choose)
+    {
+    case 0:
+
+        payment();
+        break ;
+    }
+}
+void weblink()
 {
     system("COLOR 0E");
     system("cls");
@@ -2099,7 +2437,7 @@ void payment(void)
     {
     case 0:
 
-        s_user();
+        payment();
         break ;
     }
 }
@@ -2148,6 +2486,7 @@ void all_course(void)
 void result(void)
 {
     system("cls");
+    system("COLOR 0B");
     title();
     cout<<"\n\n\t\t\t1.Name:"<<p.name<<" "<<"\n\t\t\t2.Id:"<<p.id<<" "<<"\n\t\t\t3.course result-1:"<<p.cou_1re<<" "<<"\n\t\t\t4.course result-2:"<<p.cou_2re<<" "<<"\n\t\t\t5.course result-3:"<<p.cou_3re<<" "<<"\n\t\t\t6.course result-4:"<<p.cou_4re<<" "<<"\n\t\t\t7.course result-5: "<<p.cou_5re<<" "<<"\n\t\t\t8.course result-1: "<<p.cou_6re<<endl;
     int choose;
@@ -2167,6 +2506,7 @@ void result(void)
 void career_guideline(void)
 {
     system("cls");
+    system("COLOR 0B");
     title();
     system("explorer https://www.bubt.edu.bd/Home/page_details/Career_Guidance_Office");
     int choose;
@@ -2184,6 +2524,105 @@ void career_guideline(void)
         s_user();
         break ;
     }
+}
+void s_tra_login()
+{
+    system("cls");
+    title();
+    system("COLOR 0A");
+    while(1)
+    {
+        FILE *tr;
+        char name2[50];
+        int id2,r,k=0;
+        tr=fopen("transport.txt","r");
+        if(tr==NULL)
+            cout<< "File dose not exist."<<endl;
+
+        else
+        {
+            cout<<"\n\n\t\t\t\t\t##Please enter your  username and password##";
+            cout<< "\n\n\n\t\t\t\tUsername : ";
+            cin>>name2;
+            // getchar();
+            //gets( name2);
+
+            cout<< "\n\t\t\t\tPassword : ";
+            cin>>id2;
+            while(!feof(tr))
+            {
+                fscanf(tr,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.subject,&p.mobile,&p.blood,&p.address,&p.bus_name);
+
+                r=strcmp(p.name,name2);
+                if(r==0 && p.id==id2)
+                {
+
+                    loading();
+                    s_tra();
+                    //printf("\n\t\t\t1.Name:%s\n\t\t\t2.ID:%d\n\t\t\t3.Intake_section:%s\n\t\t\t4.Subject:%s\n\t\t\t5.MObile no:%s\n\t\t\t6.Blood group:%s\n\t\t\t7.Address:%s\n\t\t\t9.Bus name:%s\n",p.name,p.id,p.intake_section,p.subject,p.mobile,p.blood,p.address,p.bus_name);
+
+                    k=1;
+                    break;
+                }
+            }
+            if(k==0)
+                cout<< "\t\t!!!!!Wrong password...please try again!"<<endl;
+            else if(k==1)
+                break;
+            fclose(tr);
+        }
+    }
+}
+void s_tra(void)
+{
+    system("cls");
+    title();
+    system("COLOR 0B");
+    int ch;
+
+    while(ch!=4)
+    {
+        printf("\n\n\t\t\t\t1.Profile\n");
+        printf("\t\t\t\t2.Vehicle information\n");
+        printf("\t\t\t\t3.Vehicle maintenance\n");
+        printf("\t\t\t\t4.Expense tracking\n");
+        printf("\t\t\t\t0.Back \n");
+
+        printf("\n\t\t\t\tEnter your choose => ");
+        scanf("%d",&ch);
+
+        switch(ch)
+        {
+
+        case 0:
+            s_user();
+            break;
+        case 1:
+            system("cls");
+            tra_profile();
+            break;
+        case 2:
+            system("cls");
+            tra_info();
+            break;
+        case 3:
+            system("cls");
+            tra_mainte();
+            break;
+        case 4:
+            system("cls");
+            tra_trach();
+
+        default :
+        {
+            printf("Wrong choice");
+        }
+        printf("Pass any key to continue............... ");
+
+
+        }
+    }
+
 }
 //333333333333333333333333333333333333333333333333333 teacher assistant (admin) 3333333333333333333333333333333333333333333333333333333333333333333
 void Te_as(void)
@@ -2630,6 +3069,7 @@ void em_insert_record(void)
     gets(p.position);
     printf("\t\t4.Enter employees  email :");
     gets(p.email);
+    fflush(stdin);
     printf("\t\t5.Enter employees  mobile :");
     gets(p.mobile);
     printf("\t\t6.Enter employees  blood group  :");
@@ -2847,6 +3287,7 @@ void emp(void)
         case 2:
             system("cls");
             em_registation();
+
             break;
         case 3:
             system("cls");
@@ -2889,14 +3330,16 @@ void em_registation()
 {
 
     system("cls");
+
     title();
     int ch;
+
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.employees insert\n");
-        printf("\t\t\t\t2.Employees display\n");
-        printf("\t\t\t\t3.Employees search\n");
-        printf("\t\t\t\t4.Employees delete\n");
+        printf("\n\n\n\t\t\t\t1.Course insert\n");
+        printf("\t\t\t\t2.Course display\n");
+        printf("\t\t\t\t3.Cousre search\n");
+        printf("\t\t\t\t4.Cousse delete\n");
         printf("\t\t\t\t5.back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -2907,20 +3350,20 @@ void em_registation()
 
         case 1 :
             system("cls");
-            em_insert_record();
+            strg_insert_record();
             break;
         case 2 :
             system("cls");
-            em_display_record();
+            strg_display_record();
             break;
         case 3 :
             system("cls");
-            em_search_record();
+            strg_serch_record();
 
             break;
         case 4:
             system("cls");
-            em_del_record();
+            strg_del_record();
             break;
 
         case 5:
@@ -2937,6 +3380,7 @@ void em_registation()
 
 
     }
+
 
 }
 void account_section()
@@ -2958,9 +3402,6 @@ void account_section()
     printf("\n\t\t\tPress 0 to go back =>");
     int choose;
     scanf("%i",&choose);
-
-
-
     switch(choose)
     {
     case 0:
@@ -3352,15 +3793,14 @@ void Li(void)
 {
     system("cls");
     title();
-
     int ch;
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student insert\n");
-        printf("\t\t\t\t2.Student display\n");
-        printf("\t\t\t\t3.Student search\n");
-        printf("\t\t\t\t4.Student delete\n");
+        printf("\n\n\n\t\t\t\t1.Student library data insert\n");
+        printf("\t\t\t\t2.Student library data display\n");
+        printf("\t\t\t\t3.Student library data search\n");
+        printf("\t\t\t\t4.Student library data delete\n");
         printf("\t\t\t\t5.back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -3389,6 +3829,7 @@ void Li(void)
 
         case 5:
             Un_ad();
+            break;
         default :
         {
             printf("Wrong choice");
@@ -3418,37 +3859,35 @@ void li_insert_record(void)
     printf("\n\t\t\tPrevious data\n ");
     li_display_record();
     printf("\n\t\t\tEnter new student library data :\n");
-
-
-
     printf("\n\t\t1.Enter student name :");
     getchar();
     gets(p.name);
     printf("\t\t2.Enter student id :");
     scanf("\n%d",&p.id);
     fflush(stdin);
-
     printf("\t\t3.Enter student intake-section :");
     gets(p.intake_section);
-    printf("\t\t4.Enter student  email :");
-    gets(p.email);
-    printf("\t\t5.Enter student  mobile :");
+    printf("\t\t4.Enter student  mobile :");
     gets(p.mobile);
-    printf("\t\t6.Enter student blood group  :");
-    gets(p.blood);
-    printf("\t\t7.Enter student address :");
-    gets(p.address);
-    //fflush(stdin);
-    printf("\t\t8.Enter the student books are :");
-    gets(p.book);
+    printf("\t\t5.Enter student receive book date:");
+    gets(p.book_receive_date);
+    printf("\t\t6.Enter student submit book date:");
+    gets(p.book_submit_date);
+    fflush(stdin);
+    printf("\t\t7.Enter student receive books name:");
+    gets(p.book_name);
+    fflush(stdin);
+    printf("\t\t8.Enter student total receive books number:");
+    gets(p.total_book);
+
     fprintf(li,"%s\n",p.name);
     fprintf(li,"%d\n",p.id);
     fprintf(li,"%s\n",p.intake_section);
-    fprintf(li,"%s\n",p.email);
     fprintf(li,"%s\n",p.mobile);
-    fprintf(li,"%s\n",p.blood);
-    fprintf(li,"%s\n",p.address);
-    fprintf(li,"%s\n",p.book);
+    fprintf(li,"%s\n",p.book_receive_date);
+    fprintf(li,"%s\n",p.book_submit_date);
+    fprintf(li,"%s\n",p.book_name);
+    fprintf(li,"%s\n",p.total_book);
 
     {
         printf("\n\t\t\t****Library  record inserted successfully*****\n");
@@ -3473,8 +3912,8 @@ void li_display_record(void)
 
     while(!feof(li))
     {
-        fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.email,&p.mobile,&p.blood,&p.address,&p.book);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.email,p.mobile,p.blood,p.address,p.book);
+        fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.mobile,&p.book_receive_date,&p.book_submit_date,&p.book_name,&p.total_book);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
 
     }
     fclose(li);
@@ -3494,10 +3933,11 @@ void li_serch_record(void)
     scanf("%d",&faid);
     while(!feof(li))
     {
-        fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.email,&p.mobile,&p.blood,&p.address,&p.book);
+        fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.mobile,&p.book_receive_date,&p.book_submit_date,&p.book_name,&p.total_book);
         if(p.id==faid)
         {
-            printf("\n\n%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.email,p.mobile,p.blood,p.address,p.book);
+            printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
+
             flag=1;
             break;
         }
@@ -3535,19 +3975,22 @@ void li_del_record(void)
     lid=fopen("library1.txt","a+");
     while(!feof(li))
     {
-        fscanf(li,"%s %d %s %s %s %s %s %s",&p.name,&p.id,&p.intake_section,&p.email,&p.mobile,&p.blood,&p.address,&p.book);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
+
         if(strcmp(name,p.name)!=0)
         {
 
             printf("\n\t\t\t\t#Record Deleted successfully\n");
-            fprintf(lid,"%s\n",p.name);
-            fprintf(lid,"%d\n",p.id);
-            fprintf(lid,"%s\n",p.intake_section);
-            fprintf(lid,"%s\n",p.email);
-            fprintf(lid,"%s\n",p.mobile);
-            fprintf(lid,"%s\n",p.blood);
-            fprintf(lid,"%s\n",p.address);
-            fprintf(lid,"%s\n",p.book);
+            fprintf(li,"%s\n",p.name);
+            fprintf(li,"%d\n",p.id);
+            fprintf(li,"%s\n",p.intake_section);
+            fprintf(li,"%s\n",p.mobile);
+            fprintf(li,"%s\n",p.book_receive_date);
+            fprintf(li,"%s\n",p.book_submit_date);
+            fprintf(li,"%s\n",p.book_name);
+            fprintf(li,"%s\n",p.total_book);
+
+
 
         }
         else
@@ -3566,6 +4009,7 @@ void li_del_record(void)
     printf("\n\t\t\t\t#Update Record ==>\n");
     li_display_record();
 }
+
 //fffffffffffffffffffffffffffffffffffffffffffffffffffffffff library (user) fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 void lib_login()
 {
@@ -3593,16 +4037,15 @@ void lib_login()
             cin>>id2;
             while(!feof(li))
             {
-                fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.email,&p.mobile,&p.blood,&p.address,&p.book);
-
+                fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.mobile,&p.book_receive_date,&p.book_submit_date,&p.book_name,&p.total_book);
                 r=strcmp(p.name,name2);
                 if(r==0 && p.id==id2)
                 {
 
                     loading();
+                    //lib_profile();
                     lib();
-                    //printf("\n\t\t\t1.Name:%s\n\t\t\t2.ID:%d\n\t\t\t3.Intake-section:%s\n\t\t\t4.Email:%s\n\t\t\t5.MObile no:%s\n\t\t\t6.Blood group:%s\n\t\t\t7.Address:%s\n\t\t\t9.Salary:%s\n",p.name,p.id,p.intake_section,p.email,p.mobile,p.blood,p.address,p.book);
-
+                    //   printf("\n\t\t\t1.Name:%s\n\t\t\t2.ID:%d\n\t\t\t3.Intake-section:%s\n\t\t\t4.MObile no:%s\n\t\t\t5.Book receive date:%s\n\t\t\t6.Book submit date:%s\n\t\t\t7.Book name:%s\n\t\t\t8.Total book:%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
                     k=1;
                     break;
                 }
@@ -3616,7 +4059,6 @@ void lib_login()
     }
 
 }
-
 void lib()
 {
     system("cls");
@@ -3667,7 +4109,8 @@ void lib_profile()
 {
     system("cls");
     title();
-    printf("\n\t\t\t1.Name:%s\n\t\t\t2.ID:%d\n\t\t\t3.Intake-section:%s\n\t\t\t4.Email:%s\n\t\t\t5.MObile no:%s\n\t\t\t6.Blood group:%s\n\t\t\t7.Address:%s\n\t\t\t9.The number:%s\n",p.name,p.id,p.intake_section,p.email,p.mobile,p.blood,p.address,p.book);
+    system("COLOR 0B");
+    printf("\n\t\t\t1.Name:%s\n\t\t\t2.ID:%d\n\t\t\t3.Intake-section:%s\n\t\t\t4.MObile no:%s\n\t\t\t5.Book receive date:%s\n\t\t\t6.Book submit date:%s\n\t\t\t7.Book name:%s\n\t\t\t8.Total book:%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
 
     int choose;
 
@@ -3749,11 +4192,12 @@ void Ho(void)
     int ch;
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Studnt insert\n");
-        printf("\t\t\t\t2.Studnt display\n");
-        printf("\t\t\t\t3.Studnt search\n");
-        printf("\t\t\t\t4.Studnt delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.hosel member insert\n");
+        printf("\t\t\t\t2.Hostel member display\n");
+        printf("\t\t\t\t3.Hostel member  search\n");
+        printf("\t\t\t\t4.Hostel member  delete\n");
+        printf("\t\t\t\t5.Hostel member payment record\n");
+        printf("\t\t\t\t6.back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
         switch(ch)
@@ -3777,8 +4221,11 @@ void Ho(void)
             system("cls");
             ho_del_record();
             break;
-
         case 5:
+            system("cls");
+            hpy_display_record();
+
+        case 6:
             Un_ad();
         default :
         {
@@ -3956,6 +4403,28 @@ void ho_del_record(void)
     printf("\n\t\t\t\t#Update Record ==>\n");
     ho_display_record();
 }
+void hpy_display_record(void)
+{
+    //  title();
+    FILE*hpy;
+    hpy=fopen("hpayment.txt","r");
+    if(hpy==NULL)
+    {
+        printf("\n\t\t\tNot open");
+        return;
+    }
+    printf("\n\t\t\t\tStudent payment details are as follows=>\n\n");
+
+    while(!feof(hpy))
+    {
+        fscanf(hpy,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.gender,&p.mobile,&p.subject,&p.intake_section,&p.payment_date,&p.amount);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.gender,p.mobile,p.subject,p.intake_section,p.payment_date,p.amount);
+
+    }
+    fclose(hpy);
+
+}
+
 //gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg hostel (user) gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
 void hol_login()
 {
@@ -4009,19 +4478,19 @@ void hol_login()
 void hol()
 {
     system("cls");
-    title();
     system("COLOR 0B");
+    title();
     int ch;
 
     while(ch!=3)
     {
-        printf("\n\n\t\t\t\t1.Profile\n");
-        printf("\t\t\t\t2.Time schedule\n");
-        printf("\t\t\t\t3.Food item\n");
-        printf("\t\t\t\t4.Payment\n");
-        printf("\t\t\t\t0.Logout \n");
+        printf("\n\n\n\t\t\t\t\t1.Profile\n");
+        printf("\t\t\t\t\t2.Time schedule\n");
+        printf("\t\t\t\t\t3.Food item\n");
+        printf("\t\t\t\t\t4.Payment\n");
+        printf("\t\t\t\t\t0.Logout \n");
 
-        printf("\n\t\t\t\tEnter your choose => ");
+        printf("\n\t\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
         switch(ch)
@@ -4044,8 +4513,7 @@ void hol()
             break;
         case 4:
             system("cls");
-            payment();
-
+            hol_payment();
 
         default :
         {
@@ -4057,6 +4525,220 @@ void hol()
         }
     }
 }
+void hol_payment()
+{
+    system("COLOR 0E");
+    system("cls");
+    title();
+    int ch;
+    while(ch!=4)
+    {
+        printf("\n\n\n\n\t\t\t\t\t\t $$ ONLINE PAYMENT $$ ");
+        printf("\n\n\t\t\t\t1.Bikash\n");
+        printf("\t\t\t\t2.Nogod\n");
+        printf("\t\t\t\t3.Rocket\n");
+        printf("\t\t\t\t4.weblink \n");
+        printf("\t\t\t\t0.Back\n");
+        printf("\n\t\t\t\tEnter your choose => ");
+        scanf("%d",&ch);
+
+        switch(ch)
+        {
+        case 0:
+            hol();
+            break;
+        case 1:
+            system("cls");
+            h_bikash();
+            break;
+        case 2:
+            system("cls");
+            h_nogod();
+            break;
+        case 3:
+            system("cls");
+            h_rocket();
+            break;
+        case 4:
+            h_weblink();
+            break;
+        default :
+        {
+            printf("\n\t\t\t\t!!Wrong choice");
+        }
+        printf("\n\t\t\t\t#Pass any key to continue............... ");
+
+
+
+
+        }
+    }
+
+}
+void hpy_insert_record(void)
+{
+    system("cls");
+    system("COLOR 0E");
+    title();
+
+
+    FILE*hpy;
+    hpy=fopen("hpayment.txt","a+");
+    if(hpy==NULL)
+    {
+        printf("\n\t\t\tError cannot open file \n");
+        return;
+
+
+    }
+
+    printf("\n\n\n\t\t\t\t\t=>Enter your payment data :\n");
+
+
+
+    printf("\n\t\t1.Enter your name :");
+    getchar();
+    gets(p.name);
+    printf("\t\t2.Enter your id :");
+    scanf("\n%d",&p.id);
+    fflush(stdin);
+
+    printf("\t\t3.Enter your gender:");
+    gets(p.gender);
+    fflush(stdin);
+    printf("\t\t4.Enter your mobile:");
+    gets(p.mobile);
+    printf("\t\t5.Enter your subject:");
+    gets(p.subject);
+    printf("\t\t6.Enter your intake-section:");
+    gets(p.intake_section);
+    //fflush(stdin);
+    printf("\t\t7.Enter the payment date:");
+    gets(p.payment_date);
+    printf("\t\t8.Enter the amount :");
+    gets(p.amount);
+    fprintf(hpy,"%s\n",p.name);
+    fprintf(hpy,"%d\n",p.id);
+    fprintf(hpy,"%s\n",p.gender);
+    fprintf(hpy,"%s\n",p.mobile);
+    fprintf(hpy,"%s\n",p.subject);
+    fprintf(hpy,"%s\n",p.intake_section);
+    fprintf(hpy,"%s\n",p.payment_date);
+    fprintf(hpy,"%s\n",p.amount);
+
+    {
+        printf("\n\t\t\t****$Payment successfully$*****\n");
+
+    }
+    fclose(hpy);
+    printf("\n\t\t\t##Update Record## \n");
+    //  fscanf(hpy,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.position,&p.email,&p.mobile,&p.blood,&p.address,&p.salary);
+    printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.gender,p.mobile,p.subject,p.intake_section,p.payment_date,p.amount);
+
+    // hpy_display_record();
+    int choose;
+    printf("\n\t\t\tpress 0 to go back =>");
+    scanf("%i",&choose);
+    switch(choose)
+    {
+    case 0:
+
+        hol_payment();
+        break ;
+    }
+
+}
+void h_bikash()
+{
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    hpy_insert_record();
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+    switch(choose)
+    {
+    case 0:
+
+        hol_payment();
+        break ;
+    }
+}
+
+void h_nogod()
+{
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    hpy_insert_record();
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+    switch(choose)
+    {
+    case 0:
+
+        hol_payment();
+        break ;
+    }
+}
+void h_rocket()
+{
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    hpy_insert_record();
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+
+    switch(choose)
+    {
+    case 0:
+
+        hol_payment();
+        break ;
+    }
+}
+void h_weblink()
+{
+    system("COLOR 0E");
+    system("cls");
+    title();
+    system("explorer https://payment.bubt.edu.bd/");
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+
+    switch(choose)
+    {
+    case 0:
+
+        hol_payment();
+        break ;
+    }
+}
+
 void hol_profile()
 {
     system("cls");
@@ -4182,6 +4864,8 @@ void Tr(void)
 }
 void tr_insert_record(void)
 {
+    system("cls");
+    title();
     FILE*tr;
     tr=fopen("transport.txt","a+");
     if(tr==NULL)
@@ -4234,8 +4918,8 @@ void tr_insert_record(void)
     printf("\n\t\t\t##Update Record## \n");
     tr_display_record();
 
-}
 
+}
 void tr_display_record(void)
 {
     FILE*tr;
@@ -4540,8 +5224,72 @@ void tra_trach()
         break ;
     }
 }
-//999999999999999999999999999999999999999999999999999999999999999999999 club(admin & user) iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+//999999999999999999999999999999999999999999999999999999999999999999999 club(admin ) 99999999999999999999999999999999999999999999999999999999999999999999999
 void Cl(void)
+{
+
+    system("cls");
+
+    title();
+    system("COLOR 0B");
+    int ch;
+
+    while(ch!=6)
+    {
+        printf("\n\n\t\t\t\t1.BUBT cultural club \n");
+        printf("\t\t\t\t2.BUBT Photography club\n");
+        printf("\t\t\t\t3.BUBT IT club\n");
+        printf("\t\t\t\t4.BUBT Tour club club \n");
+        printf("\t\t\t\t5.BUBT social welfare club\n");
+        printf("\t\t\t\t6.BASIS -BUBT chapter  club\n");
+        printf("\t\t\t\t0.Back\n");
+        printf("\n\t\t\t\tEnter your choose => ");
+        scanf("%d",&ch);
+
+        switch(ch)
+        {
+
+        case 0:
+            Un_ad();
+            break;
+        case 1:
+            system("cls");
+            cl_cu();
+            break;
+        case 2:
+            system("cls");
+            cl_ph();
+            break;
+        case 3:
+            system("cls");
+            cl_it();
+            break;
+        case 4:
+            system("cls");
+            cl_to();
+            break;
+
+        case 5:
+            system("cls");
+            cl_so();
+            break;
+        case 6:
+            system("cls");
+            cl_ba();
+            break;
+
+        default :
+        {
+            printf("Wrong choice");
+        }
+        printf("Pass any key to continue............... ");
+
+
+        }
+    }
+}
+//iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii club (user) iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+void Cl_u(void)
 {
 
     system("cls");
@@ -4604,7 +5352,6 @@ void Cl(void)
         }
     }
 }
-
 
 void cl_cu(void)
 {
@@ -4774,7 +5521,7 @@ void admimssion_login()
         }
         password[i]='\0';
         printf("\n");
-        if(strcmp(username,"rifat")==0 && strcmp(password,"mim")==0)
+        if(strcmp(username,"srrifat")==0 && strcmp(password,"mim")==0)
         {
             printf("\n");
             loading();
