@@ -197,9 +197,9 @@ struct profile
     char course_1[20];
     char course_2[20];
     char course_3[25];
-    char course_4[5];
+    char course_4[20];
     char course_5[20];
-    char course_6[10];
+    char course_6[20];
     char cou_1re[20];
     char cou_2re[20];
     char cou_3re[25];
@@ -355,7 +355,7 @@ void MainMenu(void)
             User();
             break;
         case 2:
-            loginscreen();
+           // loginscreen();
             Un_ad();
             break;
         default :
@@ -387,17 +387,17 @@ void User(void)
 
 
         printf("\n\n\n\t\t\t\t\t\t\t     <USER>\n");
-        printf("\n\n\t\t\t\t1.Faculty member\n");
+        printf("\n\n\t\t\t\t1.Faculty Member\n");
         printf("\t\t\t\t2.Student\n");
-        printf("\t\t\t\t3.Teacher assistant\n");
+        printf("\t\t\t\t3.Teacher Assistant\n");
         printf("\t\t\t\t4.Employees\n");
         printf("\t\t\t\t5.Graduated\n");
         printf("\t\t\t\t6.Library\n");
         printf("\t\t\t\t7.Hostel\n");
         printf("\t\t\t\t8.Transport\n");
-        printf("\t\t\t\t9.club\n");
-        printf("\t\t\t\t10.admission panel\n");
-        printf("\t\t\t\t0.Mainmenu\n\n\n");
+        printf("\t\t\t\t9.Club\n");
+        printf("\t\t\t\t10.Admission Panel\n");
+        printf("\t\t\t\t0.Main-menu\n\n\n");
         printf("\t\t\t\tChoose from 1 to 10 :=>");
         scanf("%i",&choose);
 
@@ -474,17 +474,17 @@ void Un_ad(void)
     int choose;
     while(choose!=10)
     {
-        printf("\n\n\n\t\t\t\t\t\t       <University admin>\n");
-        printf("\n\n\n\t\t\t\t1.Faculty member record\n");
-        printf("\t\t\t\t2.Student record\n");
-        printf("\t\t\t\t3.Teacher assistant record\n");
-        printf("\t\t\t\t4.Employees record\n");
-        printf("\t\t\t\t5.Graduated record\n");
-        printf("\t\t\t\t6.Library record\n");
-        printf("\t\t\t\t7.Hostel record\n");
-        printf("\t\t\t\t8.Transport record\n");
-        printf("\t\t\t\t9.Club record\n");
-        printf("\t\t\t\t10.Admission panel record\n");
+        printf("\n\n\n\t\t\t\t\t\t       <University Admin>\n");
+        printf("\n\n\n\t\t\t\t1.Faculty Member Record\n");
+        printf("\t\t\t\t2.Student Record\n");
+        printf("\t\t\t\t3.Teacher Rssistant Record\n");
+        printf("\t\t\t\t4.Employees Record\n");
+        printf("\t\t\t\t5.Graduated Record\n");
+        printf("\t\t\t\t6.Library Record\n");
+        printf("\t\t\t\t7.Hostel Record\n");
+        printf("\t\t\t\t8.Transport Record\n");
+        printf("\t\t\t\t9.Club Record\n");
+        printf("\t\t\t\t10.Admission Panel Record\n");
         printf("\t\t\t\t0.Logout from admin...\n\n\n");
         printf("\t\t\t\tChoose from 1 to 10 :=>");
         scanf("%i",&choose);
@@ -553,10 +553,10 @@ void Fa(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Faculty member insert \n");
-        printf("\t\t\t\t2.Faculty display\n");
-        printf("\t\t\t\t3.Faculty search\n");
-        printf("\t\t\t\t4.Faculty delete\n");
+        printf("\n\n\n\t\t\t\t1.Faculty Member Insert \n");
+        printf("\t\t\t\t2.Faculty Display\n");
+        printf("\t\t\t\t3.Faculty Search\n");
+        printf("\t\t\t\t4.Faculty Delete\n");
         printf("\t\t\t\t5.back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -667,10 +667,15 @@ void fa_display_record(void)
         return;
     }
     printf("\n\t\t\t\tFaculty details are as follows=>\n\n");
+    printf("Name\tId\tPosition\tEmail\t\t\tMobile\t\tBlood.G\tAddress\tSalary\n");
+    printf("----------------------------------------------------------------------------------------------\n");
 
     while(!feof(fa))
+
     {
+
         fscanf(fa,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.position,&p.email,&p.mobile,&p.blood,&p.address,&p.salary);
+
         printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.position,p.email,p.mobile,p.blood,p.address,p.salary);
 
     }
@@ -824,12 +829,12 @@ void fa_user()
     while(ch!=7)
     {
         printf("\n\n\t\t\t\t1.Profie\n");
-        printf("\t\t\t\t2.Course id\n");
-        printf("\t\t\t\t3.CR information\n");
-        printf("\t\t\t\t4.TA information\n");
-        printf("\t\t\t\t5.Faculty information\n");
-        printf("\t\t\t\t6.Class room schedule\n");
-        printf("\t\t\t\t7.logout");
+        printf("\t\t\t\t2.Course Id\n");
+        printf("\t\t\t\t3.CR Information\n");
+        printf("\t\t\t\t4.TA Information\n");
+        printf("\t\t\t\t5.Faculty Information\n");
+        printf("\t\t\t\t6.Class Room Schedule\n");
+        printf("\t\t\t\t7.Logout");
         printf("\n\t\t\t\tEnter your choose : ");
         scanf("%d",&ch);
 
@@ -1061,11 +1066,11 @@ void St(void)
     int choose;
     while(choose!=4)
     {
-        printf("\n\n\n\n\t\t\t\t1.Student profile\n");
+        printf("\n\n\n\n\t\t\t\t1.Student Profile\n");
 
-        printf("\t\t\t\t2.Student registration\n");
-        printf("\t\t\t\t3.Student result\n");
-        printf("\t\t\t\t4.Student payment record\n");
+        printf("\t\t\t\t2.Student Registration\n");
+        printf("\t\t\t\t3.Student Result\n");
+        printf("\t\t\t\t4.Student Payment Record\n");
         printf("\t\t\t\t0.Logout...\n\n\n");
         printf("\t\t\t\tChoose from 1 to 2 :=>");
 
@@ -1113,11 +1118,11 @@ void St_profile(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student insert\n");
-        printf("\t\t\t\t2.Student display\n");
-        printf("\t\t\t\t3.Student search\n");
-        printf("\t\t\t\t4.Student delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Student Insert\n");
+        printf("\t\t\t\t2.Student Display\n");
+        printf("\t\t\t\t3.Student Search\n");
+        printf("\t\t\t\t4.Student Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -1225,7 +1230,11 @@ void st_display_record(void)
         printf("\n\t\t\tNot open");
         return;
     }
-    printf("\n\t\t\t\tFaculty details are as follows=>\n\n");
+    printf("\n\t\t\t\tStudent details are as follows=>\n\n");
+    printf("Name\tId Intake_section\tEmail\t\tMobile\t\tBlood.G\tAddress\t  CGPA\n");
+    printf("----------------------------------------------------------------------------------------------\n");
+
+
 
     while(!feof(st))
     {
@@ -1332,11 +1341,11 @@ void St_registration()
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Course insert\n");
-        printf("\t\t\t\t2.Course display\n");
-        printf("\t\t\t\t3.Cousre search\n");
-        printf("\t\t\t\t4.Cousse delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Course Insert\n");
+        printf("\t\t\t\t2.Course Display\n");
+        printf("\t\t\t\t3.Cousre Search\n");
+        printf("\t\t\t\t4.Cousse Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -1413,7 +1422,6 @@ void strg_insert_record(void)
     gets(p.course_4);
     printf("\t\t7.Enter course code 5 :");
     gets(p.course_5);
-    //fflush(stdin);
     printf("\t\t8.Enter course code 6 :");
     gets(p.course_6);
     fprintf(strg,"%s\n",p.name);
@@ -1444,12 +1452,14 @@ void strg_display_record(void)
         printf("\n\t\t\tNot open");
         return;
     }
-    printf("\n\t\t\t\tRegistration details are as follows=>\n\n");
+    printf("\n\t\t\t\tRegistration registration details are as follows=>\n\n");
+     printf("Name\tId\tCourse-1\tCourse-2\tCourse-3\tCourse-4\tCourse-5\tCourse-6\n");
+    printf("--------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(strg))
     {
         fscanf(strg,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.course_1,&p.course_2,&p.course_3,&p.course_4,&p.course_5,&p.course_6);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.course_1,p.course_2,p.course_3,p.course_4,&p.course_5,&p.course_6);
+        printf("%s\t%d\t\%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n",p.name,p.id,p.course_1,p.course_2,p.course_3,p.course_4,&p.course_5,&p.course_6);
 
     }
     fclose(strg);
@@ -1553,10 +1563,10 @@ void St_result()
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student  result insert\n");
-        printf("\t\t\t\t2.Student result display\n");
-        printf("\t\t\t\t3.Student result search\n");
-        printf("\t\t\t\t4.Student result delete\n");
+        printf("\n\n\n\t\t\t\t1.Student Result Insert\n");
+        printf("\t\t\t\t2.Student Result Display\n");
+        printf("\t\t\t\t3.Student Result Search\n");
+        printf("\t\t\t\t4.Student Result Delete\n");
         printf("\t\t\t\t5.back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -1663,12 +1673,14 @@ void stre_display_record(void)
         printf("\n\t\t\tNot open");
         return;
     }
-    printf("\n\t\t\t\tFaculty details are as follows=>\n\n");
+    printf("\n\t\t\t\tStudent result details are as follows=>\n\n");
+    printf("Name\tId\tCourse-1\tCourse-2\tCourse-3\tCourse-4\tCourse-5\tCourse-6\n");
+    printf("--------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(stre))
     {
         fscanf(stre,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.cou_1re,&p.cou_2re,&p.cou_3re,&p.cou_4re,&p.cou_5re,&p.cou_6re);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.cou_1re,p.cou_2re,p.cou_3re,p.cou_4re,p.cou_5re,p.cou_6re);
+        printf("%s\t%d\t\%s\t\t%s\t\t%s\t\t%s\t\t%s\t2\t%s\n",p.name,p.id,p.cou_1re,p.cou_2re,p.cou_3re,p.cou_4re,p.cou_5re,p.cou_6re);
 
     }
     fclose(stre);
@@ -1772,11 +1784,13 @@ void py_display_record(void)
         return;
     }
     printf("\n\t\t\t\tStudent payment details are as follows=>\n\n");
+    printf("Name\tId\tMobile\t\tSubject\tIntake-section\tNumber of Semester\tNumber of installment\tAmount\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(py))
     {
         fscanf(py,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.mobile,&p.subject,&p.intake_section,&p.number_semister,&p.number_installment,&p.amount);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.mobile,p.subject,p.intake_section,p.number_semister,p.number_installment,p.amount);
+        printf("%s\t%d\t\%s\t%s\t%s\t\t   %s\t\t\t  %s\t\t\t%s\n",p.name,p.id,p.mobile,p.subject,p.intake_section,p.number_semister,p.number_installment,p.amount);
 
     }
     fclose(py);
@@ -2634,11 +2648,11 @@ void Te_as(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Teacher assistant insert\n");
-        printf("\t\t\t\t2.Teacher assistant display\n");
-        printf("\t\t\t\t3.Teacher assistant  search\n");
-        printf("\t\t\t\t4.Teacher assistant delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Teacher Assistant Insert\n");
+        printf("\t\t\t\t2.Teacher Assistant Display\n");
+        printf("\t\t\t\t3.Teacher Assistant Search\n");
+        printf("\t\t\t\t4.Teacher Assistant Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -2746,6 +2760,10 @@ void ta_display_record(void)
         return;
     }
     printf("\n\t\t\tTeacher assistant details are as follows=>\n\n");
+    printf("Name\tId Teacher name\t  Email\t\t\tMobile\t\tBlood.G\tAddress\t\tSalary\n");
+    printf("----------------------------------------------------------------------------------------------\n");
+
+
 
     while(!feof(ta))
     {
@@ -2994,11 +3012,11 @@ void Em(void)
     int ch;
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.employees insert\n");
-        printf("\t\t\t\t2.Employees display\n");
-        printf("\t\t\t\t3.Employees search\n");
-        printf("\t\t\t\t4.Employees delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Employees Insert\n");
+        printf("\t\t\t\t2.Employees Display\n");
+        printf("\t\t\t\t3.Employees Search\n");
+        printf("\t\t\t\t4.Employees Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -3108,11 +3126,14 @@ void em_display_record(void)
         return;
     }
     printf("\n\t\t\t\tEmployees details are as follows=>\n\n");
+    printf("Name\tId\tPosition\t\tEmail\t\tMobile no\tBlood Group\tAddress\t  Salary\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+
 
     while(!feof(em))
     {
         fscanf(em,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.position,&p.email,&p.mobile,&p.blood,&p.address,&p.salary);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.position,p.email,p.mobile,p.blood,p.address,p.salary);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t\t%s  %s\n",p.name,p.id,p.position,p.email,p.mobile,p.blood,p.address,p.salary);
 
     }
     fclose(em);
@@ -3268,7 +3289,7 @@ void emp(void)
     {
         printf("\n\n\t\t\t\t1.Profile\n");
         printf("\t\t\t\t2.Registration\n");
-        printf("\t\t\t\t3.Account section\n");
+        printf("\t\t\t\t3.Account Section\n");
         printf("\t\t\t\t0.Logout \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
@@ -3336,11 +3357,11 @@ void em_registation()
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Course insert\n");
-        printf("\t\t\t\t2.Course display\n");
-        printf("\t\t\t\t3.Cousre search\n");
-        printf("\t\t\t\t4.Cousse delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Course Insert\n");
+        printf("\t\t\t\t2.Course Display\n");
+        printf("\t\t\t\t3.Cousre Search\n");
+        printf("\t\t\t\t4.Cousse Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -3414,17 +3435,18 @@ void account_section()
 //55555555555555555555555555555555555555555555555555555555 Graduated(admin) 555555555555555555555555555555555555555555555555555555555555555555555555555555
 void Gr(void)
 {
-    title();
+
     system("cls");
+    title();
     int ch;
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Graduated insert\n");
-        printf("\t\t\t\t2.Graduated display\n");
-        printf("\t\t\t\t3.Graduated search\n");
-        printf("\t\t\t\t4.Graduated delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Graduated Insert\n");
+        printf("\t\t\t\t2.Graduated Display\n");
+        printf("\t\t\t\t3.Graduated Search\n");
+        printf("\t\t\t\t4.Graduated Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -3531,11 +3553,15 @@ void gr_display_record(void)
         return;
     }
     printf("\n\t\t\t\tGraduated details are as follows=>\n\n");
+    printf("Name\tId\tIntake\t\tEmail\t\tMobile no\tBlood Group\tAddress\t\tSubject\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+
+
 
     while(!feof(gr))
     {
         fscanf(gr,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake,&p.email,&p.mobile,&p.blood,&p.address,&p.subject);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake,p.email,p.mobile,p.blood,p.address,p.subject);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t\t%s\t%s\n",p.name,p.id,p.intake,p.email,p.mobile,p.blood,p.address,p.subject);
 
     }
     fclose(gr);
@@ -3689,8 +3715,8 @@ void gra(void)
     while(ch!=3)
     {
         printf("\n\n\t\t\t\t1.Graduated Profile\n");
-        printf("\t\t\t\t2.Alumni program\n");
-        printf("\t\t\t\t3.Alumni facebook group\n");
+        printf("\t\t\t\t2.Alumni Program\n");
+        printf("\t\t\t\t3.Alumni Facebook Group\n");
         printf("\t\t\t\t0.Logout \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
@@ -3797,11 +3823,11 @@ void Li(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student library data insert\n");
-        printf("\t\t\t\t2.Student library data display\n");
-        printf("\t\t\t\t3.Student library data search\n");
-        printf("\t\t\t\t4.Student library data delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Student Library Data Insert\n");
+        printf("\t\t\t\t2.Student Library Data Display\n");
+        printf("\t\t\t\t3.Student Library Data Search\n");
+        printf("\t\t\t\t4.Student Library Data Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -3909,11 +3935,13 @@ void li_display_record(void)
         return;
     }
     printf("\n\t\t\t\tLibrary details are as follows=>\n\n");
+    printf("Name\tId Intake-Section Mobile no\tBook receive date\tBook submit Data\tBook name\tTotal Book\n");
+    printf("-------------------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(li))
     {
         fscanf(li,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.mobile,&p.book_receive_date,&p.book_submit_date,&p.book_name,&p.total_book);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
+        printf("%s\t%d \%s\t  %s\t%s\t\t\t%s\t\t\t%s\t%s\n",p.name,p.id,p.intake_section,p.mobile,p.book_receive_date,p.book_submit_date,p.book_name,p.total_book);
 
     }
     fclose(li);
@@ -4069,8 +4097,8 @@ void lib()
     while(ch!=3)
     {
         printf("\n\n\t\t\t\t1.Profile\n");
-        printf("\t\t\t\t2.Library book info\n");
-        printf("\t\t\t\t3.Library website\n");
+        printf("\t\t\t\t2.Library Book Info\n");
+        printf("\t\t\t\t3.Library Website\n");
         printf("\t\t\t\t0.Logout \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
@@ -4192,12 +4220,12 @@ void Ho(void)
     int ch;
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.hosel member insert\n");
-        printf("\t\t\t\t2.Hostel member display\n");
-        printf("\t\t\t\t3.Hostel member  search\n");
-        printf("\t\t\t\t4.Hostel member  delete\n");
-        printf("\t\t\t\t5.Hostel member payment record\n");
-        printf("\t\t\t\t6.back \n");
+        printf("\n\n\n\t\t\t\t1.Hostel Member Insert\n");
+        printf("\t\t\t\t2.Hostel Member Display\n");
+        printf("\t\t\t\t3.Hostel Member Search\n");
+        printf("\t\t\t\t4.Hostel Member Delete\n");
+        printf("\t\t\t\t5.Hostel Member Payment Record\n");
+        printf("\t\t\t\t6.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
         switch(ch)
@@ -4306,12 +4334,15 @@ void ho_display_record(void)
         printf("\n\t\t\tNot open");
         return;
     }
-    printf("\n\t\t\t\thostel details are as follows=>\n\n");
+    printf("\n\t\t\t\tHostel details are as follows=>\n\n");
+     printf("Name\tId\tIntake\tGender\tEmail\t\tMobile no\tBlood Group\tAddress\t\tRoom Number\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+
 
     while(!feof(ho))
     {
         fscanf(ho,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.gender,&p.email,&p.mobile,&p.blood,&p.address,&p.room_n);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.gender,p.email,p.mobile,p.blood,p.address,p.room_n);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t\t%s\t%s\n",p.name,p.id,p.gender,p.email,p.mobile,p.blood,p.address,p.room_n);
 
     }
     fclose(ho);
@@ -4405,7 +4436,7 @@ void ho_del_record(void)
 }
 void hpy_display_record(void)
 {
-    //  title();
+    title();
     FILE*hpy;
     hpy=fopen("hpayment.txt","r");
     if(hpy==NULL)
@@ -4413,15 +4444,32 @@ void hpy_display_record(void)
         printf("\n\t\t\tNot open");
         return;
     }
-    printf("\n\t\t\t\tStudent payment details are as follows=>\n\n");
+    printf("\n\t\t\t\tStudent hostel payment details are as follows=>\n\n");
+    printf("Name\tId\tGender\tMobile no\tSubjest\tIntake-Section\tPayment Date\tAmount\n");
+    printf("--------------------------------------------------------------------------------------------\n");
+
 
     while(!feof(hpy))
     {
         fscanf(hpy,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.gender,&p.mobile,&p.subject,&p.intake_section,&p.payment_date,&p.amount);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.gender,p.mobile,p.subject,p.intake_section,p.payment_date,p.amount);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t\t%s\t%s\n",p.name,p.id,p.gender,p.mobile,p.subject,p.intake_section,p.payment_date,p.amount);
 
     }
     fclose(hpy);
+    int choose;
+
+    printf("\n\n\n\n\t\t\t\t*Press 0 to go back =>");
+
+    scanf("%i",&choose);
+
+
+    switch(choose)
+    {
+    case 0:
+
+        Ho();
+        break ;
+    }
 
 }
 
@@ -4485,8 +4533,8 @@ void hol()
     while(ch!=3)
     {
         printf("\n\n\n\t\t\t\t\t1.Profile\n");
-        printf("\t\t\t\t\t2.Time schedule\n");
-        printf("\t\t\t\t\t3.Food item\n");
+        printf("\t\t\t\t\t2.Time Schedule\n");
+        printf("\t\t\t\t\t3.Food Item\n");
         printf("\t\t\t\t\t4.Payment\n");
         printf("\t\t\t\t\t0.Logout \n");
 
@@ -4537,7 +4585,7 @@ void hol_payment()
         printf("\n\n\t\t\t\t1.Bikash\n");
         printf("\t\t\t\t2.Nogod\n");
         printf("\t\t\t\t3.Rocket\n");
-        printf("\t\t\t\t4.weblink \n");
+        printf("\t\t\t\t4.Weblink \n");
         printf("\t\t\t\t0.Back\n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -4816,11 +4864,11 @@ void Tr(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student transport info insert\n");
-        printf("\t\t\t\t2.Student transport info display\n");
-        printf("\t\t\t\t3.Student transport info search\n");
-        printf("\t\t\t\t4.Student transport info delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.Student Transport Info Insert\n");
+        printf("\t\t\t\t2.Student Transport Info Display\n");
+        printf("\t\t\t\t3.Student Transport Info Search\n");
+        printf("\t\t\t\t4.Student Transport Info Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -4930,11 +4978,13 @@ void tr_display_record(void)
         return;
     }
     printf("\n\t\t\t\tTransport details are as follows=>\n\n");
+    printf("Name\tId\tIntake-Section\tSubject\t\tMobile no\tBlood Group\tAddress\t\tBUS Name\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(tr))
     {
         fscanf(tr,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.intake_section,&p.subject,&p.mobile,&p.blood,&p.address,&p.bus_name);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.intake_section,p.subject,p.mobile,p.blood,p.address,p.bus_name);
+        printf("%s\t%d\t\%s\t  \t%s\t\t%s\t%s\t\t%s\t%s\n",p.name,p.id,p.intake_section,p.subject,p.mobile,p.blood,p.address,p.bus_name);
 
     }
     fclose(tr);
@@ -5236,12 +5286,12 @@ void Cl(void)
 
     while(ch!=6)
     {
-        printf("\n\n\t\t\t\t1.BUBT cultural club \n");
-        printf("\t\t\t\t2.BUBT Photography club\n");
-        printf("\t\t\t\t3.BUBT IT club\n");
-        printf("\t\t\t\t4.BUBT Tour club club \n");
-        printf("\t\t\t\t5.BUBT social welfare club\n");
-        printf("\t\t\t\t6.BASIS -BUBT chapter  club\n");
+        printf("\n\n\t\t\t\t1.BUBT Cultural Club \n");
+        printf("\t\t\t\t2.BUBT Photography Club\n");
+        printf("\t\t\t\t3.BUBT IT Club\n");
+        printf("\t\t\t\t4.BUBT Tour Club\n");
+        printf("\t\t\t\t5.BUBT Social Welfare Club\n");
+        printf("\t\t\t\t6.BASIS -BUBT Chapter  Club\n");
         printf("\t\t\t\t0.Back\n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -5300,12 +5350,12 @@ void Cl_u(void)
 
     while(ch!=6)
     {
-        printf("\n\n\t\t\t\t1.BUBT cultural club \n");
-        printf("\t\t\t\t2.BUBT Photography club\n");
-        printf("\t\t\t\t3.BUBT IT club\n");
-        printf("\t\t\t\t4.BUBT Tour club club \n");
-        printf("\t\t\t\t5.BUBT social welfare club\n");
-        printf("\t\t\t\t6.BASIS -BUBT chapter  club\n");
+        printf("\n\n\t\t\t\t1.BUBT Cultural Club \n");
+        printf("\t\t\t\t2.BUBT Photography Club\n");
+        printf("\t\t\t\t3.BUBT IT Club\n");
+        printf("\t\t\t\t4.BUBT Tour Club\n");
+        printf("\t\t\t\t5.BUBT social Welfare Club\n");
+        printf("\t\t\t\t6.BASIS -BUBT Chapter Club\n");
         printf("\t\t\t\t0.Back\n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -5547,11 +5597,11 @@ void Ad_pa(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student insert\n");
-        printf("\t\t\t\t2.Student display\n");
-        printf("\t\t\t\t3.Student search\n");
-        printf("\t\t\t\t4.Student delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.New Student Insert\n");
+        printf("\t\t\t\t2.New Student Display\n");
+        printf("\t\t\t\t3.New Student Search\n");
+        printf("\t\t\t\t4.New Student Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -5604,11 +5654,11 @@ void adm_pa(void)
 
     while(ch!=5)
     {
-        printf("\n\n\n\t\t\t\t1.Student insert\n");
-        printf("\t\t\t\t2.Student display\n");
-        printf("\t\t\t\t3.Student search\n");
-        printf("\t\t\t\t4.Student delete\n");
-        printf("\t\t\t\t5.back \n");
+        printf("\n\n\n\t\t\t\t1.New Student Insert\n");
+        printf("\t\t\t\t2.New Student Display\n");
+        printf("\t\t\t\t3.New Student Search\n");
+        printf("\t\t\t\t4.New Student Delete\n");
+        printf("\t\t\t\t5.Back \n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
 
@@ -5673,18 +5723,18 @@ void ad_insert_record(void)
     scanf("\n%d",&p.id);
     fflush(stdin);
 
-    printf("\t\t3.Enter Student  program :");
+    printf("\t\t3.Enter Student program :");
     gets(p.program);
-    printf("\t\t4.Enter Student  email :");
+    printf("\t\t4.Enter Student email :");
     gets(p.email);
-    printf("\t\t5.Enter Student  mobile :");
+    printf("\t\t5.Enter Student mobile :");
     gets(p.mobile);
-    printf("\t\t6.Enter Student  blood group  :");
+    printf("\t\t6.Enter Student blood group  :");
     gets(p.blood);
     printf("\t\t7.Enter Student address :");
     gets(p.address);
     //fflush(stdin);
-    printf("\t\t8.Enter Student  intake_section :");
+    printf("\t\t8.Enter Student intake-section :");
     gets(p.intake_section);
     fprintf(ad,"%s\n",p.name);
     fprintf(ad,"%d\n",p.id);
@@ -5715,11 +5765,13 @@ void ad_display_record(void)
         return;
     }
     printf("\n\t\t\t\tAdmission details are as follows=>\n\n");
+     printf("Name\tId\tProgram\t\tEmail\t\tMobile no\tBlood Group\tAddress\t\tIntake-Section\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(ad))
     {
         fscanf(ad,"%s %d %s %s %s %s %s %s\n",&p.name,&p.id,&p.program,&p.email,&p.mobile,&p.blood,&p.address,&p.intake_section);
-        printf("%s\t%d\t\%s\t%s\t%s\t%s\t%s\t%s\n",p.name,p.id,p.program,p.email,p.mobile,p.blood,p.address,p.intake_section);
+        printf("%s\t%d\t\%s\t%s\t%s\t%s\t\t%s\t%s\n",p.name,p.id,p.program,p.email,p.mobile,p.blood,p.address,p.intake_section);
 
     }
     fclose(ad);
