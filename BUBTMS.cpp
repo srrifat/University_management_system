@@ -355,7 +355,7 @@ void MainMenu(void)
             User();
             break;
         case 2:
-           // loginscreen();
+            loginscreen();
             Un_ad();
             break;
         default :
@@ -477,13 +477,13 @@ void Un_ad(void)
         printf("\n\n\n\t\t\t\t\t\t       <University Admin>\n");
         printf("\n\n\n\t\t\t\t1.Faculty Member Record\n");
         printf("\t\t\t\t2.Student Record\n");
-        printf("\t\t\t\t3.Teacher Rssistant Record\n");
+        printf("\t\t\t\t3.Teacher Assistant Record\n");
         printf("\t\t\t\t4.Employees Record\n");
         printf("\t\t\t\t5.Graduated Record\n");
         printf("\t\t\t\t6.Library Record\n");
         printf("\t\t\t\t7.Hostel Record\n");
         printf("\t\t\t\t8.Transport Record\n");
-        printf("\t\t\t\t9.Club Record\n");
+        printf("\t\t\t\t9.Club\n");
         printf("\t\t\t\t10.Admission Panel Record\n");
         printf("\t\t\t\t0.Logout from admin...\n\n\n");
         printf("\t\t\t\tChoose from 1 to 10 :=>");
@@ -1453,7 +1453,7 @@ void strg_display_record(void)
         return;
     }
     printf("\n\t\t\t\tRegistration registration details are as follows=>\n\n");
-     printf("Name\tId\tCourse-1\tCourse-2\tCourse-3\tCourse-4\tCourse-5\tCourse-6\n");
+    printf("Name\tId\tCourse-1\tCourse-2\tCourse-3\tCourse-4\tCourse-5\tCourse-6\n");
     printf("--------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(strg))
@@ -4335,7 +4335,7 @@ void ho_display_record(void)
         return;
     }
     printf("\n\t\t\t\tHostel details are as follows=>\n\n");
-     printf("Name\tId\tIntake\tGender\tEmail\t\tMobile no\tBlood Group\tAddress\t\tRoom Number\n");
+    printf("Name\tId\tIntake\tGender\tEmail\t\tMobile no\tBlood Group\tAddress\t\tRoom Number\n");
     printf("---------------------------------------------------------------------------------------------------------------\n");
 
 
@@ -5765,7 +5765,7 @@ void ad_display_record(void)
         return;
     }
     printf("\n\t\t\t\tAdmission details are as follows=>\n\n");
-     printf("Name\tId\tProgram\t\tEmail\t\tMobile no\tBlood Group\tAddress\t\tIntake-Section\n");
+    printf("Name\tId\tProgram\t\tEmail\t\tMobile no\tBlood Group\tAddress\t\tIntake-Section\n");
     printf("---------------------------------------------------------------------------------------------------------------\n");
 
     while(!feof(ad))
