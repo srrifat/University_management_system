@@ -1974,15 +1974,15 @@ void s_user(void)
     while(ch!=10)
     {
         printf("\n\n\n\n\t\t\t\t1.Profie\n");
-        printf("\t\t\t\t2.Class routine\n");
-        printf("\t\t\t\t3.Faculty information\n");
+        printf("\t\t\t\t2.Class Routine\n");
+        printf("\t\t\t\t3.Faculty Information\n");
         printf("\t\t\t\t4.Registration \n");
         printf("\t\t\t\t5.Library \n");
         printf("\t\t\t\t6.Payment\n");
-        printf("\t\t\t\t7.All cource\n");
+        printf("\t\t\t\t7.All Course\n");
         printf("\t\t\t\t8.Result\n");
-        printf("\t\t\t\t9.Career guideline\n");
-        printf("\t\t\t\t10.transport\n");
+        printf("\t\t\t\t9.Career Guideline\n");
+        printf("\t\t\t\t10.Transport\n");
         printf("\t\t\t\t0.Logout\n");
         printf("\n\t\t\t\tEnter your choose => ");
         scanf("%d",&ch);
@@ -2201,8 +2201,8 @@ void s_lib()
     while(ch!=3)
     {
         printf("\n\n\t\t\t\t1.Profile\n");
-        printf("\t\t\t\t2.Library book info\n");
-        printf("\t\t\t\t3.Library website\n");
+        printf("\t\t\t\t2.Library Book Info\n");
+        printf("\t\t\t\t3.Library Website\n");
         printf("\t\t\t\t0.Back \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
@@ -2502,7 +2502,7 @@ void result(void)
     system("cls");
     system("COLOR 0B");
     title();
-    cout<<"\n\n\t\t\t1.Name:"<<p.name<<" "<<"\n\t\t\t2.Id:"<<p.id<<" "<<"\n\t\t\t3.course result-1:"<<p.cou_1re<<" "<<"\n\t\t\t4.course result-2:"<<p.cou_2re<<" "<<"\n\t\t\t5.course result-3:"<<p.cou_3re<<" "<<"\n\t\t\t6.course result-4:"<<p.cou_4re<<" "<<"\n\t\t\t7.course result-5: "<<p.cou_5re<<" "<<"\n\t\t\t8.course result-1: "<<p.cou_6re<<endl;
+    cout<<"\n\n\t\t\t1.Name:"<<p.name<<" "<<"\n\t\t\t2.Id:"<<p.id<<" "<<"\n\t\t\t3.course-1 result:"<<p.cou_1re<<" "<<"\n\t\t\t4.course-2 result:"<<p.cou_2re<<" "<<"\n\t\t\t5.course-3 result:"<<p.cou_3re<<" "<<"\n\t\t\t6.course-4 result:"<<p.cou_4re<<" "<<"\n\t\t\t7.course-5 result: "<<p.cou_5re<<" "<<"\n\t\t\t8.course-6 result: "<<p.cou_6re<<endl;
     int choose;
 
     printf("\n\t\t\tpress 0 to go back =>");
@@ -2597,9 +2597,9 @@ void s_tra(void)
     while(ch!=4)
     {
         printf("\n\n\t\t\t\t1.Profile\n");
-        printf("\t\t\t\t2.Vehicle information\n");
-        printf("\t\t\t\t3.Vehicle maintenance\n");
-        printf("\t\t\t\t4.Expense tracking\n");
+        printf("\t\t\t\t2.Vehicle Information\n");
+        printf("\t\t\t\t3.Vehicle Maintenance\n");
+        printf("\t\t\t\t4.Expense Tracking\n");
         printf("\t\t\t\t0.Back \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
@@ -2917,8 +2917,8 @@ void te_as(void)
     while(ch!=3)
     {
         printf("\n\n\t\t\t\t1.Profile\n");
-        printf("\t\t\t\t2.Research info\n");
-        printf("\t\t\t\t3.CR information\n");
+        printf("\t\t\t\t2.Research Info\n");
+        printf("\t\t\t\t3.CR Information\n");
         printf("\t\t\t\t0.Logout \n");
 
         printf("\n\t\t\t\tEnter your choose => ");
