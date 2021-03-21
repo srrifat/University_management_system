@@ -1,4 +1,6 @@
 //BUBT management system>>team-04
+//admin username-team4
+//password-srrifats
 #include<bits/stdc++.h>
 using namespace std;
 #include<stdio.h>
@@ -231,7 +233,6 @@ int main()
 
 {
     welcomeScreen();
-    title();
     MainMenu();
 }
 void welcomeScreen(void)
@@ -329,7 +330,7 @@ void MainMenu(void)
     title();
     int ch;
 
-    while(ch!=2)
+   while(ch!=2)
     {
 
         printf("\n\n\n\n\t\t\t\t1.User\n");
@@ -348,8 +349,6 @@ void MainMenu(void)
 
             exit(1);
             break;
-
-            break ;
         case 1:
 
             User();
@@ -370,7 +369,7 @@ void MainMenu(void)
 
 
 
-    }
+     }
 
 
 
